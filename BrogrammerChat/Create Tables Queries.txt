@@ -1,0 +1,20 @@
+CREATE TABLE Users
+(
+	UserID int PRIMARY KEY IDENTITY(1,1),
+	UserName VARCHAR(MAX) NOT NULL UNIQUE,
+	Password VARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE Messages
+(
+	MessageID int PRIMARY KEY IDENTITY(1,1),
+	UserID int FOREIGN KEY REFERENCES Users(UserID),
+);
+
+CREATE TABLE Contents
+(
+	ContentID int PRIMARY KEY IDENTITY(1,1),
+	TextAttachments VARCHAR(MAX),
+	BinaryAttachments VARBINARY(MAX),
+);
+
